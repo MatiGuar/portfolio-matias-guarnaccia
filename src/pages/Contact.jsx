@@ -10,7 +10,7 @@ export default function Contact() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true }}
     >
-      <h2 className="text-3xl font-bold text-cyan-400 mb-4">¿Charlamos?</h2>
+      <h2 className="text-3xl font-bold text-cyan-400 mb-4">Conectemos</h2>
       <p className="text-gray-300 text-lg mb-6">
         Estoy disponible para propuestas laborales, proyectos freelance o colaboraciones.
       </p>
