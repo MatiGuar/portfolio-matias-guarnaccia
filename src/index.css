@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+.bg-dark {
+  background-color: #0F172A;
+}
+
+.bg-hero-img {
+  background-image: url('/banner-demo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
 @layer components {
   .section-container {
     @apply container mx-auto px-4 md:px-8;

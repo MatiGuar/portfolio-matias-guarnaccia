@@ -1,14 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import Hero from "./Hero";
-
-// Todas las variantes disponibles
-const variants = [
-  "default",
-  "minimal",
-  "imageBackground",
-  "angledLayout",
-  "devIllustration"
-];
 
 const variantLabels = {
   default: "Clásica",
@@ -18,29 +9,19 @@ const variantLabels = {
   devIllustration: "Ilustración"
 };
 
-const HeroDemo = () => {
-  const [variantIndex, setVariantIndex] = useState(0);
-  const [message, setMessage] = useState("");
-
-  const handleChangeVariant = () => {
-    const nextIndex = (variantIndex + 1) % variants.length;
-    const newVariant = variants[nextIndex];
-    setVariantIndex(nextIndex);
-    setMessage(`🎨 Has cambiado a la variante "${variantLabels[newVariant]}"`);
-
-    setTimeout(() => setMessage(""), 3000);
-  };
-
-  const currentVariant = variants[variantIndex];
+const HeroDemo = ({ variant, onChangeVariant }) => {
+  const message = variant
+    ? `🎨 Has cambiado a la variante "${variantLabels[variant]}"`
+    : "";
 
   return (
     <>
       <Hero
-        variant={currentVariant}
+        variant={variant}
         title="¡Hola! Soy Matías Guarnaccia 👋"
         subtitle="Desarrollador web enfocado en frontend moderno y diseño UI/UX. Me especializo en React, Tailwind CSS y WordPress. Apasionado por crear experiencias visuales limpias y funcionales."
         image={
-          currentVariant === "devIllustration"
+          variant === "devIllustration"
             ? "/hero-dev.svg"
             : "/matias-hero.jpg"
         }
@@ -51,11 +32,11 @@ const HeroDemo = () => {
           label: "Ver CV online",
           href: "https://link-a-tu-cv.com"
         }}
-        onChangeVariant={handleChangeVariant}
+        onChangeVariant={onChangeVariant}
       />
 
       {/* Toast flotante */}
-      {message && (
+      {variant && (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-black/80 text-white px-4 py-2 rounded shadow text-sm animate-fade-in z-50">
           {message}
         </div>

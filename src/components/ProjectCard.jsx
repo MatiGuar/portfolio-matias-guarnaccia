@@ -19,7 +19,7 @@ export default function ProjectCard({ title, description, link }) {
       initial={{ opacity: 0, y: 40 }}
       animate={controls}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="bg-gray-800 rounded-xl p-5 shadow hover:shadow-lg transition"
+      className="bg-[#162c64] rounded-xl p-5 shadow hover:shadow-lg transition"
     >
       <h3 className="text-xl font-semibold text-cyan-400 mb-2">{title}</h3>
       <p className="text-gray-300 mb-4">{description}</p>

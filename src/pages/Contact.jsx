@@ -12,7 +12,7 @@ export default function Contact() {
     >
       <h2 className="text-3xl font-bold text-cyan-400 mb-4">¿Charlamos?</h2>
       <p className="text-gray-300 text-lg mb-6">
-        Estoy disponible para proyectos freelance, colaboraciones o propuestas laborales.
+        Estoy disponible para propuestas laborales, proyectos freelance o colaboraciones.
       </p>
       <a
         href="mailto:matiasguarnaccia@outlook.es"

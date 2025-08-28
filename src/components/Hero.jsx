@@ -1,7 +1,7 @@
 import React from "react";
 import { Download, Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import styles from "./Hero.module.css"; // Importa el CSS module
+import styles from "./Hero.module.css"; // CSS Modules
 
 const Hero = ({
   title,
@@ -11,7 +11,6 @@ const Hero = ({
   cta2,
   location,
   variant = "default",
-  backgroundImage = "",
   onChangeVariant,
 }) => {
   const isMinimal = variant === "minimal";
@@ -22,10 +21,58 @@ const Hero = ({
   const showImage = !isMinimal && image;
   const titleClean = isMinimal ? title.replace(/👋/g, "") : title;
 
+  // Layout especial para la variante MINIMAL
+  if (isMinimal) {
+    return (
+      <section className="min-h-screen bg-gray-900 text-white flex flex-col justify-center items-center px-4">
+        <h1 className="text-2xl font-semibold text-center mb-2">
+          {titleClean}
+        </h1>
+        <p className="text-sm text-gray-300 text-center mb-4">
+          Frontend developer · React · Tailwind · WordPress
+        </p>
+
+        <span className="inline-block w-2 h-2 rounded-full bg-green-400 mb-6"></span>
+
+        <div className="flex gap-6">
+          {cta1 && (
+            <a
+              href={cta1.href}
+              download={cta1.download}
+              className="flex items-center gap-2 text-gray-200 hover:text-white transition text-sm"
+            >
+              <Download className="w-4 h-4" />
+              {cta1.label}
+            </a>
+          )}
+          {cta2 && (
+            <a
+              href={cta2.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-gray-200 hover:text-white transition text-sm"
+            >
+              <Search className="w-4 h-4" />
+              {cta2.label}
+            </a>
+          )}
+        </div>
+
+        {onChangeVariant && (
+          <button
+            onClick={onChangeVariant}
+            className="mt-8 text-xs text-gray-500 hover:text-white underline transition"
+          >
+            Cambiar apariencia
+          </button>
+        )}
+      </section>
+    );
+  }
+
+  // Otras variantes
   const layoutClasses = isImageBg
     ? "bg-cover bg-center text-white"
-    : isMinimal
-    ? "bg-white text-black"
     : isAngled
     ? `bg-gradient-to-r from-orange-500 via-black to-blue-700 text-white ${styles.clipDiagonal}`
     : isDev
@@ -35,7 +82,6 @@ const Hero = ({
   return (
     <section
       className={`min-h-screen w-full px-4 flex justify-center items-center ${layoutClasses}`}
-      style={isImageBg ? { backgroundImage: `url(${backgroundImage})` } : {}}
     >
       <AnimatePresence mode="wait">
         <motion.div
@@ -50,7 +96,6 @@ const Hero = ({
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          {/* Imagen izquierda en variantes con layout horizontal */}
           {(isAngled || isDev) && (
             <div
               className={`flex justify-center w-full md:w-1/2 ${
@@ -69,7 +114,6 @@ const Hero = ({
             </div>
           )}
 
-          {/* Contenido */}
           <div
             className={`${
               isAngled || isDev
@@ -77,7 +121,6 @@ const Hero = ({
                 : "max-w-4xl mx-auto"
             } ${isDev ? "order-1 md:order-2" : ""}`}
           >
-            {/* Imagen arriba del contenido en default/imageBackground */}
             {(variant === "default" || variant === "imageBackground") &&
               showImage && (
                 <div className="mb-6 flex justify-center">
@@ -107,18 +150,10 @@ const Hero = ({
 
             {location && (
               <p className="mt-2 text-sm">
-                {isMinimal ? (
-                  <span className="inline-flex items-center gap-2 text-green-600">
-                    <span className="w-2 h-2 rounded-full bg-green-500 inline-block"></span>
-                    Disponible para trabajar remoto desde España
-                  </span>
-                ) : (
-                  <span className="text-green-400">{location}</span>
-                )}
+                <span className="text-green-400">{location}</span>
               </p>
             )}
 
-            {/* Botones */}
             <div
               className={`flex flex-col md:flex-row gap-4 mt-8 ${
                 isAngled || isDev ? "justify-start" : "justify-center"
@@ -147,14 +182,13 @@ const Hero = ({
               )}
             </div>
 
-            {/* Botón para cambiar variante */}
             {onChangeVariant && (
               <div className="mt-6">
                 <button
                   onClick={onChangeVariant}
-                  className="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-full text-sm shadow transition active:scale-95"
+                  className={`bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-full text-sm shadow transition active:scale-95 ${styles.shakeButton}`}
                 >
-                  👉 Presioname 😏
+                  {variant === "imageBackground" ? "👉 Presioname 😏" : "Presioname"}
                 </button>
               </div>
             )}
