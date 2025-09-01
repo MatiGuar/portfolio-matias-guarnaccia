@@ -15,23 +15,29 @@ export default function Projects() {
         Proyectos destacados
       </h2>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <ProjectCard
-          title="Sezzadio Sur"
-          description="Sitio institucional para distribuidora mayorista de autopartes. Diseño moderno y responsive con WordPress."
-          link="https://sezzadio.com.ar"
-        />
-        <ProjectCard
-          title="Plasma Podcast"
+      <div className="flex justify-center">
+        <div className="w-full max-w-md">
+          <ProjectCard
+            title="Sezzadio Sur"
+            description="Sitio institucional para distribuidora mayorista de autopartes. Diseño moderno y responsive con WordPress."
+            link="https://sezzadio.com.ar"
+          />
+
+          {/* <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+            <ProjectCard
+          title="Plasma Podcast (en proceso)"
           description="Landing page para podcast musical con estética minimalista. Diseño adaptativo y visual moderno."
           link="#"
         />
         <ProjectCard
-          title="App de tareas en React"
+          title="App de tareas en React (en proceso)"
           description="CRUD completo usando React Hooks y localStorage. Diseño limpio y funcional."
           link="#"
-        />
+        />*/}
+        </div>
       </div>
+
     </motion.section>
   );
 }
