@@ -18,6 +18,7 @@ function App() {
   return (
     <div className="text-white min-h-screen">
       <Navbar />
+      <Marquee />
       <HeroDemo />
       {/*<SkillList />*/}
       {/*<SkillsBrs />*/}
