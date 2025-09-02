@@ -6,11 +6,11 @@ function Hero({ title, subtitle, image, backgroundImage, cta1, cta2 }) {
       {/* Contenido */}
       <div className="relative z-10 max-w-2xl px-6">
         {/* Imagen de perfil */}
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-center mb-6 pt-20 sm:pt-0">
           <img
             src={image}
             alt="Matías Guarnaccia"
-            className="w-72 h-72 object-cover rounded-full shadow-lg border-4 border-cyan-400"
+            className="w-72 h-72 sm:w-72 sm:h-72 w-48 h-48 object-cover rounded-full shadow-lg border-4 border-cyan-400"
           />
         </div>
 
