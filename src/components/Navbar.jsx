@@ -40,7 +40,9 @@ export default function Navbar() {
           <li><a href="#contact" onClick={toggleMenu} className="block hover:text-cyan-400">Contacto</a></li>
         </ul>
       )}
-      <Marquee />
+      <div className="border-t border-gray-800">
+        <Marquee />
+      </div>
     </nav>
   );
 }

@@ -1,6 +1,6 @@
 export default function Marquee() {
   return (
-    <div className="w-full bg-zinc-900 text-zinc-100 overflow-hidden">
+    <div className="w-full bg-gray-900 text-gray-100 overflow-hidden h-10 flex items-center">
       {/* Texto accesible para lectores de pantalla */}
       <span className="sr-only">
         Este sitio fue creado con React Js y Tailwind CSS
