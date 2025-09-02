@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import Marquee from "./Marquee";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -39,6 +40,7 @@ export default function Navbar() {
           <li><a href="#contact" onClick={toggleMenu} className="block hover:text-cyan-400">Contacto</a></li>
         </ul>
       )}
+      <Marquee />
     </nav>
   );
 }
