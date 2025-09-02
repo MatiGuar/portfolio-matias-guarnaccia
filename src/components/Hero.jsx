@@ -1,10 +1,10 @@
 function Hero({ title, subtitle, image, backgroundImage, cta1, cta2 }) {
   return (
     <div
-      className="relative flex items-center justify-center min-h-screen text-center bg-cover bg-center">
+      className="relative flex items-center justify-center min-h-[calc(100vh-4rem)] text-center bg-cover bg-center">
         
       {/* Contenido */}
-      <div className="relative z-10 max-w-2xl px-6">
+      <div className="relative z-10 max-w-2xl w-full px-6">
         {/* Imagen de perfil */}
         <div className="flex justify-center mb-6 pt-20 sm:pt-0">
           <img

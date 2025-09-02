@@ -37,3 +37,10 @@
     }
   }
 }
+
+
+@media (max-width: 640px) {
+  .bg-hero-img {
+    background-attachment: scroll;
+  }
+}
