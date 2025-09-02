@@ -32,7 +32,7 @@ export default function SkillsCloud() {
     const getRadius = () => {
       if (window.innerWidth < 640) return 100;  // móvil
       if (window.innerWidth < 1024) return 150; // tablet
-      return 250;                               // desktop
+      return 350;                               // desktop
     };
 
     const options = {
