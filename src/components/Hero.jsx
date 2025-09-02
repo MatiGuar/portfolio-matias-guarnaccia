@@ -10,7 +10,7 @@ function Hero({ title, subtitle, image, backgroundImage, cta1, cta2 }) {
           <img
             src={image}
             alt="Matías Guarnaccia"
-            className="w-72 h-72 sm:w-72 sm:h-72 w-48 h-48 object-cover rounded-full shadow-lg border-4 border-cyan-400"
+            className="w-48 h-48 sm:w-72 sm:h-72 object-cover rounded-full shadow-lg border-4 border-cyan-400"
           />
         </div>
 

@@ -12,7 +12,23 @@ export default function SkillsCloud() {
       "Photoshop", "Figma"
     ];
 
-    // 📱 Ajustar radio según el ancho de la pantalla
+    // Mapa de colores fijos por etiqueta
+    const colorMap = {
+      "WordPress": "#21759B",
+      "JavaScript": "#F7DF1E",
+      "PHP": "#777BB4",
+      "HTML": "#E44D26",
+      "CSS": "#264DE4",
+      "React": "#61DBFB",
+      "Node.js": "#68A063",
+      "Git": "#F1502F",
+      "MySQL": "#00618A",
+      "MongoDB": "#4DB33D",
+      "Photoshop": "#31A8FF",
+      "Figma": "#F24E1E"
+    };
+
+    // 📱 Ajusta radio según ancho de pantalla
     const getRadius = () => {
       if (window.innerWidth < 640) return 100;  // móvil
       if (window.innerWidth < 1024) return 150; // tablet
@@ -26,55 +42,21 @@ export default function SkillsCloud() {
       keep: true,
     };
 
+    // Inicializa la nube
     const instance = TagCloud(container, texts, options);
     cloudRef.current = instance;
 
-    // 🎨 aplicar colores personalizados
-    const spans = document.querySelectorAll(".tagcloud span");
-    spans.forEach((span) => {
-      switch (span.innerText) {
-        case "WordPress":
-          span.style.color = "#21759B";
-          break;
-        case "JavaScript":
-          span.style.color = "#F7DF1E";
-          break;
-        case "PHP":
-          span.style.color = "#777BB4";
-          break;
-        case "HTML":
-          span.style.color = "#E44D26";
-          break;
-        case "CSS":
-          span.style.color = "#264DE4";
-          break;
-        case "React":
-          span.style.color = "#61DBFB";
-          break;
-        case "Node.js":
-          span.style.color = "#68A063";
-          break;
-        case "Git":
-          span.style.color = "#F1502F";
-          break;
-        case "MySQL":
-          span.style.color = "#00618A";
-          break;
-        case "MongoDB":
-          span.style.color = "#4DB33D";
-          break;
-        case "Photoshop":
-          span.style.color = "#31A8FF";
-          break;
-        case "Figma":
-          span.style.color = "#F24E1E";
-          break;
-        default:
-          span.style.color = "#ffffff";
-      }
-    });
+    // 🔄 Aplica colores constantemente para evitar que se salgan
+    const applyColors = () => {
+      const spans = document.querySelectorAll(".tagcloud span");
+      spans.forEach(span => {
+        span.style.color = colorMap[span.innerText] || "#ffffff";
+      });
+      requestAnimationFrame(applyColors);
+    };
+    applyColors();
 
-    // 🔄 Reajustar radio al cambiar el tamaño de la ventana
+    // 🔄 Reajustar radio al cambiar tamaño de ventana
     const handleResize = () => {
       instance.destroy();
       TagCloud(container, texts, { ...options, radius: getRadius() });
@@ -88,6 +70,7 @@ export default function SkillsCloud() {
     };
   }, []);
 
+  // Pausar/reanudar al pasar el mouse
   const handleMouseEnter = () => {
     if (cloudRef.current) cloudRef.current.pause();
   };
