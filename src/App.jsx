@@ -4,9 +4,8 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import HeroDemo from "./components/HeroDemo";
-import SkillList from "./components/SkillList";
-import SkillsBrs from "./components/SkillsBrs";
 import SkillsCld from "./components/SkillsCld";
+import Marquee from "./components/Marquee";
 
 function App() {
   useEffect(() => {
@@ -20,8 +19,6 @@ function App() {
       <Navbar />
       <Marquee />
       <HeroDemo />
-      {/*<SkillList />*/}
-      {/*<SkillsBrs />*/}
       <SkillsCld />
       <Projects />
       <Contact />
