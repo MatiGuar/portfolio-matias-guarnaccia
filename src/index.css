@@ -14,6 +14,9 @@
   background-attachment: fixed;
 }
 
+.hero-demo {
+  padding-top: 50px; /* mismo alto que la marquee */
+}
 
 @layer components {
   .section-container {

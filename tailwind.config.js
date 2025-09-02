@@ -1,14 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      fontFamily: {
-        sora: ['Sora', 'sans-serif'],
-      },
       keyframes: {
         marquee: {
           "0%": { transform: "translateX(0%)" },
@@ -16,9 +10,9 @@ export default {
         },
       },
       animation: {
-        marquee: "marquee 20s linear infinite",
+        marquee: "marquee 60s linear infinite",
       },
     },
   },
   plugins: [],
-}
+};
