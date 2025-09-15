@@ -5,7 +5,7 @@ import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import HeroDemo from "./components/HeroDemo";
 import SkillsCld from "./components/SkillsCld";
-import Marquee from "./components/Marquee";
+{/*import Marquee from "./components/Marquee";*/}
 
 function App() {
   useEffect(() => {
@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="text-white min-h-screen">
       <Navbar />
-      <Marquee />
+      {/*<Marquee />*/}
       <HeroDemo />
       <SkillsCld />
       <Projects />
