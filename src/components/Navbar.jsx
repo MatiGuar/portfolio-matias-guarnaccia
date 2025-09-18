@@ -25,7 +25,7 @@ export default function Navbar() {
 
         {/* Navegación desktop */}
         <ul className="hidden md:flex gap-6 font-medium">
-          <li><a href="#about" className="hover:text-cyan-400">Sobre mí</a></li>
+          {/*<li><a href="#about" className="hover:text-cyan-400">Sobre mí</a></li>*/}
           <li><a href="#projects" className="hover:text-cyan-400">Proyectos</a></li>
           <li><a href="#contact" className="hover:text-cyan-400">Contacto</a></li>
         </ul>
